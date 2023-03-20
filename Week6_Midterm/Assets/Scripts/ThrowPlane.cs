@@ -91,6 +91,7 @@ public class ThrowPlane : MonoBehaviour
         {
             Debug.Log("remove text");
             GameManager.Instance.beginText.gameObject.SetActive(false);
+            GameManager.Instance.arrowImg.gameObject.SetActive(false);
         }
     }
 

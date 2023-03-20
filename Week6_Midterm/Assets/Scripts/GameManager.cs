@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI beginText;
     public TextMeshProUGUI endText;
+
+    public Image arrowImg;
+    private float arrowImgOpacity;
     
     private void Awake()
     {
@@ -31,16 +35,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        arrowImgOpacity = arrowImg.color.a;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (Time.time > 3f && beginText.gameObject.activeSelf)
-        // {
-        //     beginText.gameObject.SetActive(false);
-        // }
-        
+        arrowImg.color = new Vector4(arrowImg.color.r, arrowImg.color.g, arrowImg.color.b, 255 * Mathf.Sin(Time.time * 6));
+        Debug.Log(arrowImg.color.a);
         if (counter == target)
         {
             // Debug.Log("target achieved");
